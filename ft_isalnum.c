@@ -1,15 +1,18 @@
-int ft_isalnum(int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 20:37:12 by cargonz2          #+#    #+#             */
+/*   Updated: 2023/12/04 20:33:11 by cargonz2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-	printf("%d\n", 'c');
-	printf("%d\n", '8');
-	printf("%d\n", ' ');
-	
-	return (0);
 }
