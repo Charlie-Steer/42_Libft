@@ -6,7 +6,7 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:33:33 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/11 16:06:14 by cargonz2         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:30:54 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,33 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	char	*substr;
+	size_t	substr_len;
 
-	i = 0;
-	while (s[start + i] != '\0' && i < len)
+	substr_len = 0;
+	if (!(ft_strlen(s) < start))
 	{
-		printf("%c", s[start + i]);
-		i++;
+		while (s[start + substr_len] != '\0' && substr_len < len)
+		{
+			substr_len++;
+		}
 	}
-	
-	substr = malloc((i - ((size_t)start)) * sizeof(char));
-
-	*substr = memmove();
-	
+	substr = malloc((substr_len + 1) * sizeof(char));
 	if (substr == NULL)
 		return (NULL);
-	else
-		return (substr);
+	ft_memmove(substr, &s[start], (substr_len));
+
+	if (!(ft_strlen(s) < start))
+	{
+		substr[substr_len] = '\0';
+	}
+	return (substr);
 }
 
+/*
 int main(void)
 {
 	char s[] = "Hello, what's up?";
-	printf("%s\n", ft_substr(s, 7, 5));
+	printf("%s\n", ft_substr(s, 8, 5));
 }
+*/

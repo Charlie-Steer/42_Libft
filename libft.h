@@ -6,12 +6,14 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:37:49 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/11 16:15:12 by cargonz2         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:30:03 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int		ft_isalpha(int c);
 
@@ -59,4 +61,6 @@ void	*ft_calloc(size_t count, size_t size);
 
 char	*ft_strdup(const char *s1);
 
-//char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	*ft_strjoin(char const *s1, char const *s2);
