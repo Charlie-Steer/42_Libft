@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include "libft.h"
 
+char addone(unsigned int i, char c)
+{
+	return (++c);
+}
+
 int main(void)
 {
-	printf("returns:	%s\n", ft_itoa(2154));
-	printf("returns:	%s\n", ft_itoa(0));
-	printf("returns:	%s\n", ft_itoa(7));
-	printf("returns:	%s\n", ft_itoa(-1527));
-	printf("returns:	%s\n", ft_itoa(-5));
-	printf("returns:	%s\n", ft_itoa(-0));
-	printf("returns:	%s\n", ft_itoa(-2147483648));
-	return (0);
+	char *s = "hello!";
+	printf("%s\n", ft_strmapi(s, *addone));
 }
