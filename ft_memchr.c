@@ -6,7 +6,7 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:30:33 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/06 17:07:18 by cargonz2         ###   ########.fr       */
+/*   Updated: 2023/12/15 10:31:26 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void 	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
 		{
-			return (((void *)&s[i]));
+			return (void *)&((unsigned char *)s)[i];
 		}
 		i++;
 	}
