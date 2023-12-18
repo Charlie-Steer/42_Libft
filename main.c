@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include "libft.h"
 
-char addone(unsigned int i, char c)
+void addone(unsigned int i, char *c)
 {
-	return (++c);
+	(c)++;
 }
 
 int main(void)
 {
-	char *s = "hello!";
-	printf("%s\n", ft_strmapi(s, *addone));
+	char s[] = "hello!";
+	ft_striteri(s, *addone);
+	printf("%s\n", s);
 }
