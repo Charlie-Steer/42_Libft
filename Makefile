@@ -1,36 +1,37 @@
-#--Vars--#
-MAGENTA = \033[0;35m
-YELLOW  = \033[0;33m
-GREEN   = \033[0;32m
-NC      = \033[0m
-CC      = gcc
-LIBC    = ar rcs
-CFLAGS  = -Wall -Wextra -Werror
-RM      = rm -f
-#--Files--#
-NAME    = libft.a
-SRCS    =\
-	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c \
+#VARIABLES
+
+NAME = libft.a
+SOURCES =\
+	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c\
 	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c\
-	ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c \
+	ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c\
 	ft_memcmp.c ft_strnstr.c ft_atoi.c\
 	ft_calloc.c ft_strdup.c\
 	ft_substr.c ft_strjoin.c\
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c\
 	ft_putnbr_fd.c
-OBJS    = $(SRCS:.c=.o)
-.c.o:
-	@$(CC) $(CFLAGS) -c $< -I ./ -o $@
-$(NAME): $(OBJS)
-	@printf "  $(MAGENTA)Compiling \t\t$(GREEN)✓ $(YELLOW)$(NAME)$(NC)\n"
-	@$(LIBC) $(NAME) $(OBJS)
-#--Commands--#
+OBJECTS = $(SOURCES:.c=.o)
+
+
+#RULES
+
+%.o: %.c
+	@gcc -Wall -Wextra -Werror -c $< -I ./ -o $@
+
+$(NAME): $(OBJECTS)
+	@ar rcs $(NAME) $^
+	@printf "Archive file created.\n"
+
 all: $(NAME)
+
 clean:
-	@printf "  $(MAGENTA)Cleaning \t\t$(GREEN)✓ $(YELLOW)Cleaned$(NC)\n"
-	@$(RM) $(OBJS)
+	@rm -f *.o
+	@printf "Object files deleted.\n"
+
 fclean: clean
-	@printf "  $(MAGENTA)Deleting \t\t$(GREEN)✓ $(YELLOW)$(NAME)$(NC)\n"
-	@$(RM) $(NAME)
+	@rm -f $(NAME)
+	@printf "Archive file deleted.\n"
+
 re: fclean all
-.PHONY: .c.o all clean fclean re
+
+.PHONY: $(NAME) all clean fclean re
