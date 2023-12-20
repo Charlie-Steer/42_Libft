@@ -6,7 +6,7 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:37:49 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/18 21:50:29 by cargonz2         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:12:01 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 /*
 typedef struct	s_list
@@ -56,8 +57,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-//void	ft_putendl_fd(char *s, int fd);
-//void	ft_putnbr_fd(int n, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 //Bonus
 //t_list	*ft_lstnew(void *content);
