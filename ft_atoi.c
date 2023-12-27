@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	num;
 	int	i;
-	int sign;
+	int	sign;
 
 	num = 0;
 	i = 0;

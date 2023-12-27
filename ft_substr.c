@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h> //DELETE
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -31,18 +29,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (substr == NULL)
 		return (NULL);
 	ft_memmove(substr, &s[start], (substr_len));
-
 	if (!(ft_strlen(s) < start))
 	{
 		substr[substr_len] = '\0';
 	}
 	return (substr);
 }
-
-/*
-int main(void)
-{
-	char s[] = "Hello, what's up?";
-	printf("%s\n", ft_substr(s, 8, 5));
-}
-*/

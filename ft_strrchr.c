@@ -14,12 +14,11 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	char *last_occ_found;
+	int		i;
+	char	*last_occ_found;
 
 	i = 0;
 	last_occ_found = NULL;
-
 	if (c < 0 || c > 256)
 		return ((char *)s);
 	while (s[i])
@@ -36,29 +35,4 @@ char	*ft_strrchr(const char *s, int c)
 		return (&((char *)s)[i]);
 	else
 		return (NULL);
-	/*
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
-	{
-		if (s[i] == (char)c)
-			return ((char*)(s + i));
-		i--;
-	}
-	return (NULL);
-	*/
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char s[] = "tripouille";
-	printf("%s\n", strrchr(s, 't' + 256));
-	printf("%s\n", ft_strrchr(s, 't' + 256));
-}
-*/

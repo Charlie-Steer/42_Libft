@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 18:45:41 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/15 09:58:45 by cargonz2         ###   ########.fr       */
+/*   Created: 2023/12/22 11:54:27 by cargonz2          #+#    #+#             */
+/*   Updated: 2023/12/22 13:05:11 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (dst == NULL && src == NULL)
+	t_list	*current;
+
+	current = *lst;
+	if (lst == NULL || new == NULL)
+		return ;
+	else if (*lst == NULL)
 	{
-		return (NULL);
+		*lst = new;
+		return ;
 	}
-	else if ((unsigned char *)dst > (unsigned char *)src)
+	while (current->next != NULL)
 	{
-		while (len > 0)
-		{
-			len--;
-			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		}
-		return (dst);
+		current = current->next;
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
+	current->next = new;
 }
