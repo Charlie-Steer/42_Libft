@@ -6,11 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:15:51 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/06 19:35:32 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:00:26 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:10:50 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/15 22:46:17 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 22:56:06 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	intlen(int n)
 	len = 0;
 	if (n == 0)
 		return (1);
+	else if (n < 0)
+		len++;
 	while (n != 0)
 	{
 		n /= 10;
@@ -30,44 +32,25 @@ static int	intlen(int n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	int		is_negative;
 	char	*str;
+	int		digit;
 
-	is_negative = 0;
 	len = intlen(n);
-	if (n < 0)
-		is_negative = 1;
-	str = malloc((len + 1 + is_negative) * sizeof(char));
-	if (n == -2147483648)
-	{
-		ft_strlcpy(str, "-2147483648\0", 12);
-		return (str);
-	}
-	else if (n < 0)
-	{
-		n = -n;
-		is_negative = 1;
-	}
-
+	str = malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-
-	if (n == 0)
-	{
+	else if (n == 0)
 		str[0] = '0';
-		str[1] = '\0';
-		return (str);
-	}
-	if (is_negative)
-	{
+	else if (n < 0)
 		str[0] = '-';
-		len++;
-	}
 	str[len] = '\0';
 	len--;
 	while (n != 0)
 	{
-		str[len] = (n % 10) + '0';
+		digit = n % 10;
+		if (digit < 0)
+			digit = -digit;
+		str[len] = digit + '0';
 		n /= 10;
 		len--;
 	}

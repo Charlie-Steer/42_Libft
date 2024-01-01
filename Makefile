@@ -19,24 +19,21 @@ BONUS_OBJECTS = $(BONUS:.c=.o)
 #RULES
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -c $< -I ./ -o $@
+	@gcc -Wall -Wextra -Werror -c $< -I ./ -o $@
 
 $(NAME): $(OBJECTS)
 	@ar rcs $(NAME) $^
-	@printf "Archive file created.\n"
 
 all: $(NAME)
 
 bonus: $(BONUS_OBJECTS)
-	ar rcs $(NAME) $(BONUS_OBJECTS)
+	@ar rcs $(NAME) $(BONUS_OBJECTS)
 
 clean:
 	@rm -f *.o
-	@printf "Object files deleted.\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "Archive file deleted.\n"
 
 re: fclean all
 

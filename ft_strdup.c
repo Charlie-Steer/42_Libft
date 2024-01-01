@@ -6,12 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 20:58:02 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/07 21:14:05 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:17:49 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {

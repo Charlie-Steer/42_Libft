@@ -6,12 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:30:33 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/15 10:31:26 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 22:59:53 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

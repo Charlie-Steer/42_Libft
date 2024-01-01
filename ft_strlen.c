@@ -6,11 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:38:37 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/11/30 20:38:39 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:19:29 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

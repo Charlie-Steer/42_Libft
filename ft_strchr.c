@@ -6,11 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:44:10 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/05 16:30:35 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:11:21 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

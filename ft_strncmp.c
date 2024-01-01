@@ -6,11 +6,11 @@
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:42:52 by cargonz2          #+#    #+#             */
-/*   Updated: 2023/12/06 19:09:33 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/01 23:20:35 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
