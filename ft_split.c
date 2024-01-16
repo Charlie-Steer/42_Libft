@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: cargonz2 <cargonz2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:14:37 by cargonz2          #+#    #+#             */
-/*   Updated: 2024/01/08 20:09:00 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:53:09 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*cpy_str(char *substr, char *substr_end)
+/*
+static char	*cpy_str(char *substr, char *substr_end)
 {
 	char *newstr;
+	size_t	i;
 
 	while (substr[i] != substr_end)
 	{
@@ -31,21 +33,93 @@ char	*cpy_str(char *substr, char *substr_end)
 		return (newstr);
 	}
 }
+*/
 
-char	**ft_split(char const *s, char c);
+static void	skip_chars(char **s, char c)
 {
-	int i;
-	int j;
-	char *separator;
-	char *substr;
+	while (**s == c)
+		(*s)++;
+}
 
+static size_t	count_words(const char *s, char c)
+{
+	size_t	word_count;
+	int		found_separator;
+	int		found_word;
+	size_t	i;
+
+	word_count = 0;
+	found_word = 0;
+	found_separator = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+		{
+			found_separator = 1;
+			found_word = 0;
+		}
+		else if (!found_word)
+		{
+			found_separator = 0;
+			found_word = 1;
+			word_count++;
+		}
+		i++;
+	}
+	return (word_count);
+}
+
+static size_t	len_to_char(const char *s, char c)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i] != c)
+		i++;
+	return (i++);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	word_count;
+	size_t	word_len;
+	size_t	i;
+	size_t	j;
+
+	word_count = count_words(s, c);
+	word_len = 0;
 	i = 0;
 	j = 0;
 
-	substr = s;
-	substr_end = ft_strchr(s, c);
-	cpy_str(substr, substr_end);
+	//printf("%lu\n", count_words(s, c));
+	
+	char **str_arr = malloc(sizeof(char *) * word_count + 1);
+	if (str_arr == NULL)
+		return (NULL);
 
-	substr(s, strlen());
-	ft_memmove();
+	while (s[i] != '\0')
+	{
+		while (s[i] == c)
+		{
+			i++;
+		}
+		while (s[i] != c && s[i] != '\0')
+		{
+			word_len++;
+			i++;
+		}
+		if (word_len != 0)
+		{
+			//ft_strchr(&s[i], c);
+			//printf("%s\n", ft_strchr(&s[i], c));
+			i++;
+			str_arr[j] = ft_substr(s, i, word_len);
+			printf("%lu\n", len_to_char(&s[i], c));
+			//printf("%s\n", str_arr[j]);
+			j++;
+			word_len = 0;
+		}
+	}
+	return (str_arr);
 }

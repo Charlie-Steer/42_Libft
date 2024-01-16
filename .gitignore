@@ -3,3 +3,7 @@
 _*
 a.out
 main.c
+*.o
+*.a
+.vscode/
+program
