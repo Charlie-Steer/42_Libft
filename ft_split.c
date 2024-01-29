@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cargonz2 <cargonz2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:14:37 by cargonz2          #+#    #+#             */
-/*   Updated: 2024/01/16 17:01:47 by cargonz2         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:21:29 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 static size_t	count_words(const char *s, char c)
 {
 	size_t	word_count;
-	int		found_separator;
 	int		found_word;
 	size_t	i;
 
 	word_count = 0;
 	found_word = 0;
-	found_separator = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
-			found_separator = 1;
 			found_word = 0;
 		}
 		else if (!found_word)
 		{
-			found_separator = 0;
 			found_word = 1;
 			word_count++;
 		}
@@ -70,10 +66,17 @@ char	**ft_split(char const *s, char c)
 		}
 		if (word_len != 0)
 		{
-			//printf("test\n");
 			str_arr[j] = ft_substr(s, i - word_len, word_len);
-			//printf("i: %lu,	word_len: %lu\n", i, word_len);
-			//printf("%s\n", str_arr[j]);
+			if (str_arr[j] == NULL)
+			{
+				while (j > 0)
+				{
+					free(str_arr[j - 1]);
+					j--;
+				}
+				free(str_arr);
+				return (NULL);
+			}
 			j++;
 			word_len = 0;
 		}
