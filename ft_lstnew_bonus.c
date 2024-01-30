@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cargonz2 <cargonz2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 13:18:09 by cargonz2          #+#    #+#             */
-/*   Updated: 2024/01/29 21:17:04 by cargonz2         ###   ########.fr       */
+/*   Created: 2023/12/21 12:38:55 by cargonz2          #+#    #+#             */
+/*   Updated: 2024/01/30 16:35:44 by cargonz2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*prev_node;
+	t_list	*node;
 
-	if (lst == NULL || del == NULL)
-		return ;
-	while (*lst != NULL)
-	{
-		prev_node = *lst;
-		del((*lst)->content);
-		*lst = (*lst)->next;
-		free(prev_node);
-	}
+	node = malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
