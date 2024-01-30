@@ -18,6 +18,9 @@ FLAGS = -Wall -Wextra -Werror
 
 #RULES
 
+%.o: %.c
+	@gcc $(FLAGS) -c $< -o $@
+
 $(NAME): $(OBJECTS)
 	@ar rcs $(NAME) $(OBJECTS)
 
@@ -34,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: $(NAME) all clean fclean re
+.PHONY: $(NAME) all clean fclean re bonus
